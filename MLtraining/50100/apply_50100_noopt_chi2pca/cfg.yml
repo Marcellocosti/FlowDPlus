@@ -1,0 +1,47 @@
+appl:
+  column_to_save_list:
+  - fM
+  - fPt
+ml:
+  raw_output: false
+  saved_models:
+  - /home/mdicosta/flowDplus/MLtraining/50100/no_opt_chi2pca_fullsample_frac06/pt1_3/ModelHandler_pT_1_3.pickle
+  - /home/mdicosta/flowDplus/MLtraining/50100/no_opt_chi2pca_fullsample_frac06/pt3_5/ModelHandler_pT_3_5.pickle
+  - /home/mdicosta/flowDplus/MLtraining/50100/no_opt_chi2pca_fullsample_frac06/pt5_8/ModelHandler_pT_5_8.pickle
+  - /home/mdicosta/flowDplus/MLtraining/50100/no_opt_chi2pca_fullsample_frac06/pt8_12/ModelHandler_pT_8_12.pickle
+  - /home/mdicosta/flowDplus/MLtraining/50100/no_opt_chi2pca_fullsample_frac06/pt12_24/ModelHandler_pT_12_24.pickle
+output:
+  leg_labels:
+    Bkg: Background
+    FD: Feed-down D$^+$
+    Prompt: Prompt D$^+$
+  out_labels:
+    Bkg: Bkg
+    FD: FD
+    Prompt: Prompt
+pt_ranges:
+  max:
+  - 3
+  - 5
+  - 8
+  - 12
+  - 24
+  min:
+  - 1
+  - 3
+  - 5
+  - 8
+  - 12
+savecfg: true
+savedistrs: true
+standalone_appl:
+  inputs:
+  - /data/shared/DplFlowML/MLtrees/MC/Train306228/HF_LHC24g2_2P3PDstar_50100_PromptDplus_frac0.4.parquet
+  - /data/shared/DplFlowML/MLtrees/MC/Train306228/HF_LHC24g2_2P3PDstar_50100_NonPromptDplus_frac0.4.parquet
+  - /data/shared/DplFlowML/MLtrees/Data/Train305807/HF_LHC23zzh_pass4_small_2P3PDstar_50100.parquet
+  output_dir: /home/mdicosta/flowDplus/MLtraining/50100/apply_50100_noopt_chi2pca
+  output_names:
+  - Prompt
+  - NonPrompt
+  - Bkg
+  treename: null

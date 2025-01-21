@@ -1,0 +1,8 @@
+input: /data/shared/Dflow/Dplus/2050/mc/AO2D_corrbkg_studies.root
+variable: 'fM'
+chn_flag: 4
+centrality: 'k2050'
+outputdir: /home/mdicosta/flowDplus/kde_fit
+suffix: 'trydraw_ptfilter'
+pt_mins: [0] #, 2, 4, 6, 8]
+pt_maxs: [10] #, 4, 6, 8, 10]

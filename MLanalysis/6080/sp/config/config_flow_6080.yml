@@ -1,0 +1,410 @@
+# global info (do not change)      
+axes: {mass: 0,
+       pt: 1,
+       cent: 2,
+       sp: 3,
+       deltaphi: 15,
+       phi: 16,
+       bdt_bkg: 4,
+       bdt_sig: 5}
+
+# axes: {mass: 0,
+#        pt: 1,
+#        cent: 2,
+#        sp: 3,
+#        occupancy: 4,
+#        evselbits: 5}
+
+harmonic: 2 # 2: v2, 3: v3, etc.
+
+# pt bins
+ptmins: [
+           1.0,
+           1.5,
+           2.0,
+           2.5,
+           3.0,
+           3.5,
+           4.0,
+           5.0,
+           6.0,
+           7.0,
+           8.0,
+           10.0,
+           12.0,
+           16.0
+       ]
+ptmaxs: [
+           1.5,
+           2.0,
+           2.5,
+           3.0,
+           3.5,
+           4.0,
+           5.0,
+           6.0,
+           7.0,
+           8.0,
+           10.0,
+           12.0,
+           16.0,
+           24.0
+       ]
+
+# inv_mass_bins (one for each pt bin)
+inv_mass_bins: [ 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05],
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05],
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05],
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05],
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.92,1.95,2.0,2.05], 
+              #    [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+              #    [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05],
+]
+use_inv_mass_bins: false
+
+
+# bdt cut
+apply_btd_cuts: true # apply bdt cuts
+bkg_ml_cuts: [
+              0.12, 
+              0.12, 
+              0.18, 
+              0.18, 
+              0.18, 
+              0.18, 
+              0.18, 
+              0.18, 
+              0.20, 
+              0.20, 
+              0.20, 
+              0.20, 
+              0.20, 
+              0.20
+              ] # max probability for bkg, one for each pt bin
+sig_ml_cuts: [
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0
+              ]       # min probability for sig, one for each pt bin
+cut_variation:
+       bdt_cut: {
+              bkg: { 
+                     min: [0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                     max: [0.004, 0.2, 0.4, 0.4, 0.4, 0.4, 0.4],
+                     step: [0.002, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+                       },
+              sig: { 
+                     min: [0.5, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2],
+                     max: [1.0, 0.6, 0.8, 0.8, 0.8, 0.8, 0.8],
+                     step: [0.5, 0.4, 0.2, 0.2, 0.2, 0.2, 0.2]
+                       }     
+       }
+
+
+# ep/sp subevents
+detA: 'FT0c'
+detB: 'FT0a'
+detC: 'TPCtot'
+
+# fit options
+Dmeson: 'Dplus'
+br: 0.0938 # branching ratio
+FixSigma: [
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1
+          ] 
+SigmaFile: ''
+SigmaMultFactor: 1.
+FixMean: [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+         ]
+NSigma4SB: [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            1
+           ] #,4,4,4,4,4,4,4,4,4,]
+MeanFile: ''
+MassMin: [
+          1.80, #    1.80, 
+          1.80, #    1.80, 
+          1.78, #    1.78, 
+          1.78, #    1.78, 
+          1.78, #    1.78, 
+          1.78, #    1.75, 
+          1.75, #    1.75, 
+          1.75, #    1.75, 
+          1.75, #    1.75, 
+          1.75, #    1.75, 
+          1.72, #    1.75, 
+          1.70, #    1.72, 
+          1.70, #    1.72, 
+          1.70, #    1.70
+       ]
+MassMax: [
+          1.94, #    1.93, 
+          1.94, #    1.93, 
+          1.97, #    1.95, 
+          1.97, #    1.95, 
+          1.97, #    1.95, 
+          1.97, #    1.95, 
+          1.98, #    1.98, 
+          1.98, #    1.98, 
+          1.98, #    1.98, 
+          1.98, #    1.98, 
+          1.98, #    1.98, 
+          2.04, 
+          2.04, 
+          2.04
+       ]
+#MassMin: [1.80, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70]
+#MassMax: [1.95, 2.04, 2.045, 2.045, 2.045, 2.045, 2.045, 2.045, 2.045, 2.04, 2.040, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04]
+Rebin: [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        4,
+        4,
+        6,
+        6,
+        6
+       ] #, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 6, 6]
+InclSecPeak: [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+             ] #, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+Sigma: [
+        0.012,
+        0.012,
+        0.012,
+        0.012,
+        0.012,
+        0.012,
+        0.020,
+        0.020,
+        0.020,
+        0.020,
+        0.020,
+        0.025,
+        0.025,
+        0.025
+       ] #, 0.020, 0.020, 0.020, 0.020, 0.020, 0.020, 0.020, 0.020, 0.020, 0.020]
+SigmaSecPeak: [
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008
+              ] #, 0.008, 0.008, 0.008]
+SigmaFileSecPeak: ''
+SigmaMultFactorSecPeak: 1.
+FixSigmaToFirstPeak: 0
+UseLikelihood: 1
+BkgFunc: [ 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo'
+         ] #, 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo']
+SgnFunc: [
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus'
+       ] #, 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus' ]
+BkgFuncVn: [
+            'kPol2', 
+            'kPol2',   
+            'kPol2',   
+            'kPol2',   
+            'kPol2',   
+            'kPol2', 
+            'kPol2', 
+            'kPol2', 
+            'kPol2', 
+            'kPol2', 
+            'kPol2', 
+            'kPol2', 
+            'kPol2', 
+            'kPol2'
+           ] #, 'kPol2', 'kPol2', 'kPol2', 'kPol2', 'kPol2', 'kPol2', 'kPol2', 'kPol2', 'kPol2', 'kPol2' ]
+
+FixSigmaRatio: 0 # used only if SgnFunc = kGausSigmaRatioPar
+SigmaRatioFile: ""
+BoundMean: 0 # 0: Do not set limits on mean range, 1: the mean is set to be between MassMin[i] and MassMax[i]
+InclRefl: false
+enableRef: false
+ReflFile: ''
+ReflFunc: ''
+
+# templates for corr bkg of D+
+drawvncomps: true
+IncludeKDETempls: false
+FromGrid: true
+# To add more templates, one should do [part1, ... ,partN]
+TemplsFlags: [
+                     2, 
+                     # 0
+                     ]
+TemplsInputs: [
+                     '/home/mdicosta/flowDplus/kde_fit/outputDs/DsToKKPiWrongRecoPiKPi_1233.root', 
+                     # '/home/mdicosta/flowDplus/kde_fit/DplusToKKPiMisidKPi.root'
+                     ]
+TemplsTreeNames: [
+                     'DsKKPiMisidKPi', 
+                     # 'DplusKKPiMisidKPi'
+                     ]
+
+InitWeights: [
+              # [50],
+                [50] #, 101],
+              # [50],
+              # [50],
+              # [50],
+              # [50],
+              # [50],
+              # [50],
+              # [50],
+              # [50],
+              # [50]
+              ]
+MinWeights: [
+       #       [0],
+               [0] #, 1],
+       #       [10],
+       #       [10],
+       #       [10],
+       #       [10],
+       #       [10],
+       #       [10],
+       #       [10],
+       #       [10],
+       #       [10]
+             ]
+MaxWeights: [
+       #       [100], 
+               [100] #, -101],
+       #       [100],
+       #       [-100],
+       #       [100],
+       #       [100],
+       #       [100],
+       #       [100],
+       #       [100],
+       #       [100],
+       #       [100]
+             ]
+
+# # efficiency
+# task_filename: /home/stefano/flowD/input/LHC23/pass3/Dplus/AnalysisResults_Dplus_efficiency.root
+
+# # fraction
+# ryield_filename: /home/stefano/flowD/output/pass3/Dplus/sp/ry/raw_yields_LHC23zzh_pass3_Dplus_skimmed_FULL_2060_train237912.root
+# eff_filename: /home/stefano/flowD/output/pass3/Dplus/sp/eff/eff_DplusDplus_pass3_3050.root  
+# # model predictions (fixed)
+# fonllfile: /home/stefano/flowD/input/fonll/fonll_pythia_beautyFFee_charmhadrons_5dot5tev_y0dot5.root
+# raa_tamu: /home/stefano/alice/DmesonAnalysis/models/tamu/NonPromptD0_TAMU_RAA_5TeV_3050.txt 
+# nevents: 3.1e+08 # number of events in the sample
