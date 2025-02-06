@@ -1,17 +1,18 @@
 #!/bin/bash
 
 # Run the Python script
-python3 /home/mdicosta/alice/DmesonAnalysis/run3/flow/run_full_flow_analysis.py \
-    '/home/mdicosta/flowDplus/MLanalysis/config_dp_pass4_std.yml' \
-    '/data/shared/DplFlowML/outflow/Data/Train308280/AnalysisResults_HF_LHC23_PbPb_pass4_medium_2P3PDstar_MLchi2pca2050.root' \
+python3 /Users/mcosti/Analysis/DmesonAnalysis/run3/flow/run_full_flow_analysis.py \
+    '/Users/mcosti/Analysis/FlowDPlus/MLanalysis/3040/config_dp_pass4_3040.yml' \
+    'useprep.root' \
     --centrality 'k3040' \
-    --resolution 0.75 \
-    --outputdir '/home/mdicosta/flowDplus/MLanalysis' \
-    --suffix 'try' \
+    --resolution '/Users/mcosti/Analysis/Datasets/Reso/resosp3040l_PASS4_full_PbPb_Reso.root' \
+    --outputdir '/Users/mcosti/Analysis/FlowDPlus/MLanalysis/3040/allstat' \
+    --suffix 'allstat_0_5' \
     --vn_method 'sp' \
+    --batch \
     --skip_resolution \
-    --skip_efficiency
-    # Uncomment below lines if needed
-    # '/home/mdicosta/runlocal/AnalysisResults.root' \
+    --skip_efficiency \
+    --skip_preprocess \
+    --inputspreprocessed
     # --skip_projection \
     # --skip_vn \
