@@ -1,0 +1,334 @@
+harmonic: 2 # 2: v2, 3: v3, etc.
+
+# pt bins
+ptmins: [
+           1.0,
+           1.5,
+           2.0,
+           2.5,
+           3.0,
+           3.5,
+           4.0,
+           5.0,
+           6.0,
+           8.0,
+           12.0,
+           16.0
+       ]
+ptmaxs: [
+           1.5,
+           2.0,
+           2.5,
+           3.0,
+           3.5,
+           4.0,
+           5.0,
+           6.0,
+           8.0,
+           12.0,
+           16.0,
+           24.0
+       ]
+
+# inv_mass_bins (one for each pt bin)
+sp_bins: 
+       min: -3.0
+       max: 3.20
+       step: 0.08
+inv_mass_bins: [ 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05],
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05],
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05],
+]
+use_inv_mass_bins: false # use binning in invariant mass distribution, neglects inv_mass_bins (default: false)
+centrality: 'k3040'
+
+# bdt cut
+apply_btd_cuts: false # apply bdt cuts
+bkg_ml_cuts: [0.08, 0.08, 0.08, 0.08, 0.08, 0.08] # max probability for bkg, one for each pt bin
+sig_ml_cuts: [0.004, 0.004, 0.004, 0.004, 0.004, 0.004]       # min probability for sig, one for each pt bin
+
+# cut variation
+cut_variation:
+       corr_bdt_cut:
+              bkg_max: [0.01, 0.01, 0.02, 0.02, 0.02, 0.02, 0.03, 0.06, 0.06, 0.06, 0.06, 0.06]
+              sig: # the max value is not contained in the range
+                     min: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05] #, 0.15, 0.15, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+                     max: [0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50]
+                     step: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05]
+       uncorr_bdt_cut:
+            bkg_max: # max probability for bkg, one for each pt bin
+                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 1
+                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 2
+                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 3
+                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 4
+                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 5
+                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 6
+            sig:
+                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 1
+                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 1
+                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 2
+                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 2
+                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 3
+                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 3
+                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 4
+                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 4
+                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 5
+                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 5
+                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 6
+                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 6
+
+axestokeep: ['Mass', 'sp', 'score_FD']
+RebinSparse:
+       Mass: 4
+       sp: 1
+       score_FD: 25
+
+outputDir: '/Users/mcosti/Analysis/FlowDPlus/MLanalysis/PR3040/cutvar_try'
+flow_files: [
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_001.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_002.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_003.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_004.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_005.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_006.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_007.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_008.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_009.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_009.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_010_jobs_1_7.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_010_jobs_8_10.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_011.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_012.root',
+]
+
+# ep/sp subevents
+detA: 'FT0c'
+detB: 'FT0a'
+detC: 'TPCpos'
+
+# fit options
+Dmeson: 'Dplus'
+br: 0.0938 # branching ratio
+FixSigma: [
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1
+          ] #,1,1,1,1,1,1,1,1,1,] 
+SigmaFile: ''
+SigmaMultFactor: 1.
+FixMean: [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+         ] #,0,0,0,0,0,0,0,0,0,]
+NSigma4SB: [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            1
+           ] #,4,4,4,4,4,4,4,4,4,]
+MeanFile: ''
+MassMin: [1.80, 1.70, 1.70, 1.70, 1.70, 1.75, 1.75, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70]
+MassMax: [1.95, 1.98, 1.98, 1.98, 1.98, 1.98, 1.98, 1.98, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04]
+Rebin: [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+       ] #, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 6, 6]
+InclSecPeak: [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+             ] #, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+Sigma: [
+        0.012,
+        0.012,
+        0.012,
+        0.020,
+        0.020,
+        0.020,
+        0.020,
+        0.020,
+        0.020,
+        0.020,
+        0.020,
+        0.020
+       ] #, 0.020, 0.020, 0.020, 0.020, 0.020, 0.020, 0.020, 0.020, 0.020, 0.020]
+SigmaSecPeak: [
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008
+              ] #, 0.008, 0.008, 0.008]
+SigmaFileSecPeak: ''
+SigmaMultFactorSecPeak: 1.
+FixSigmaToFirstPeak: 0
+UseLikelihood: 1
+BkgFunc: [ 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo', 
+           'kExpo'
+         ] #, 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo', 'kExpo']
+SgnFunc: [
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus'
+       ] #, 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus', 'kGaus' ]
+BkgFuncVn: [
+            'kPol2', 
+            'kPol2', 
+            'kPol2', 
+            'kPol2', 
+            'kPol2', 
+            'kPol2', 
+            'kPol2', 
+            'kPol2', 
+            'kPol2', 
+            'kPol2', 
+            'kPol2', 
+            'kPol2'
+           ] #, 'kPol2', 'kPol2', 'kPol2', 'kPol2', 'kPol2', 'kPol2', 'kPol2', 'kPol2', 'kPol2', 'kPol2' ]
+
+FixSigmaRatio: 0 # used only if SgnFunc = kGausSigmaRatioPar
+SigmaRatioFile: ""
+BoundMean: 0 # 0: Do not set limits on mean range, 1: the mean is set to be between MassMin[i] and MassMax[i]
+InclRefl: false
+ReflFile: ''
+ReflFunc: ''
+
+# efficiency
+eff_filename: '/Users/mcosti/Analysis/Datasets/2050/AnalysisResults_334594_mc_eff.root'
+
+# these configurations are available only for the MC
+#_______________________________________________________________________________________________________________________
+## axes for the MC from Dtask
+### for D0: mass-2 pt-3 bdt_bkg-0 bdt_prompt-6 bdt_nonprompt-1
+# axes_mc: {mass: 3,
+#               pt: 4,
+#               bdt_bkg: 0,
+#               bdt_sig: 1}
+
+#_______________________________________________________________________________________________________________________
+## used for the MC in projection_thnsparse.py
+### for D0, D+, Ds
+MC_filename: /Users/mcosti/Analysis/Datasets/2050/AnalysisResults_334594_mc_eff.root
+dirname: hf-task-dplus
+# sparsenameAll: null
+# sparsenamePrompt: hSparseMassPrompt
+# sparsenameFD: hSparseMassFD
+# sparsenameGenPrompt: hSparseMassGenPrompt
+# sparsenameGenFD: hSparseMassGenFD
+
+### ptweight
+ptweightPath: ''
+ptweightName: ''
+ptweightBPath: ''
+ptweightBName: ''
+
+#TH2nameGenPrompt
+## used for compute_frac_cut_var.py 
+histoNameRaw: hRawYieldsTrueSimFit # also ComputeV2vsFDFrac.py
+histoNameEffPrompt: hEffPrompt
+histoNameEffFD: hEffFD
+
+minimisation:
+    correlated: true # true --> fully correlated, false --> fully uncorrelated
+    doRawYieldSmearing: false # whether to smear the yields with a poissonian error
+    setseed: false # set the seed for Poissonian smearing
+    applyEffVariation:
+        enable: false
+        relvariation: 0.05
+        option: decreasing # available options: [upshift, downshift, decreasing, increasing]
+        prompt: true
+        feeddown: true
+
+linearplot: 
+    enable: true #enable linear plots NpromptVsNFD
+    uncbands: false #enable upper/lower linear plots limits
+    outfileformat: ['png', 'pdf', 'jpg'] # linear plot saved in different output formats (e.g. png, pdf, etc.). Plots are already saved in the ouput TFile
+
+## used for ComputeV2vsFDFrac.py
+histoNameV2: hvnSimFit
+graphNameV2: gvnSimFit
+histoNameFracFD: hFDFrac
+histoNameFracPrompt: hPromptFrac

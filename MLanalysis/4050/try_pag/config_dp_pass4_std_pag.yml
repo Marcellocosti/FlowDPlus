@@ -49,98 +49,94 @@ ptmaxs: [
 
 # inv_mass_bins (one for each pt bin)
 inv_mass_bins: [ 
-                 [1.70,1.74,1.76,1.78,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,2.0,2.05],
-                 [1.70,1.74,1.76,1.78,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,2.0,2.05],
-                 [1.70,1.74,1.76,1.78,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,2.0,2.05],
-                 [1.70,1.74,1.76,1.78,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,2.0,2.05],
-                 [1.70,1.74,1.76,1.78,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,2.0,2.05], 
-                 [1.70,1.74,1.76,1.78,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05],
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05],
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05],
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05],
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
                  [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
                  [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05], 
                  [1.70,1.75,1.80,1.82,1.84,1.86,1.88,1.90,1.92,1.95,2.0,2.05], 
                  [1.70,1.75,1.80,1.82,1.84,1.86,1.88,1.90,1.92,1.95,2.0,2.05], 
-                 [1.70,1.75,1.80,1.82,1.84,1.86,1.88,1.90,1.92,1.95,2.0,2.05,2.07], 
-                 [1.70,1.75,1.80,1.82,1.84,1.86,1.88,1.90,1.92,1.95,2.0,2.05,2.07]
+                 [1.70,1.75,1.80,1.82,1.84,1.86,1.88,1.90,1.92,1.95,2.0,2.05], 
+                 [1.70,1.75,1.80,1.82,1.84,1.86,1.88,1.90,1.92,1.95,2.0,2.05]
 ]
 use_inv_mass_bins: false
 
+axestokeep: ['Mass', 'sp', 'score_FD']
+RebinSparse:
+       Mass: 1
+       sp: 1
+       score_FD: 25
+
+outputDir: '/Users/mcosti/Analysis/FlowDPlus/MLanalysis/4050/allstat'
+flow_files: [
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_001.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_002.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_003.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_004.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_005.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_006.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_007.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_008.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_009.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_009.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_010_jobs_1_7.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_010_jobs_8_10.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_011.root',
+       '/Users/mcosti/Analysis/Datasets/2050/partial_merge/AnalysisResults_012.root',
+]
 
 # bdt cut
 apply_btd_cuts: true # apply bdt cuts
 bkg_ml_cuts: [
-              0.12, 
-              0.12, 
-              0.18, 
-              0.18, 
-              0.18, 
-              0.18, 
-              0.18, 
-              0.18, 
-              0.20, 
-              0.20, 
-              0.20, 
-              0.20
+              0.03, 
+              0.03, 
+              0.03, 
+              0.03, 
+              0.03, 
+              0.05, 
+              0.05, 
+              0.07, 
+              0.05, 
+              0.09, 
+              0.09, 
+              0.09
               ] # max probability for bkg, one for each pt bin
 sig_ml_cuts: [
-              0.0, 
-              0.0, 
-              0.0, 
-              0.0, 
-              0.0, 
-              0.0, 
-              0.0, 
-              0.0, 
-              0.0, 
-              0.0, 
-              0.0, 
-              0.0
+              0.10, 
+              0.10, 
+              0.10, 
+              0.10, 
+              0.10, 
+              0.10, 
+              0.10, 
+              0.10, 
+              0.10, 
+              0.10, 
+              0.14, 
+              0.14
               ]       # min probability for sig, one for each pt bin
-# cut variation
 cut_variation:
-       corr_bdt_cut:
-              bkg_max: [0.12, 0.12, 0.18, 0.18, 0.18, 0.18, 0.18, 0.18, 0.20, 0.20, 0.20, 0.20]
-              sig: # the max value is not contained in the range
-                     min: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05] #, 0.15, 0.15, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
-                     max: [0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50]
-                     step: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05]
-       uncorr_bdt_cut:
-            bkg_max: # max probability for bkg, one for each pt bin
-                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 1
-                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 2
-                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 3
-                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 4
-                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 5
-                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 6
-            sig:
-                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 1
-                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 1
-                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 2
-                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 2
-                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 3
-                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 3
-                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 4
-                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 4
-                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 5
-                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 5
-                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 6
-                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 6
+       bdt_cut: {
+              bkg: { 
+                     min: [0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                     max: [0.004, 0.2, 0.4, 0.4, 0.4, 0.4, 0.4],
+                     step: [0.002, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+                       },
+              sig: { 
+                     min: [0.5, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2],
+                     max: [1.0, 0.6, 0.8, 0.8, 0.8, 0.8, 0.8],
+                     step: [0.5, 0.4, 0.2, 0.2, 0.2, 0.2, 0.2]
+                       }     
+       }
 
 
 # ep/sp subevents
 detA: 'FT0c'
 detB: 'FT0a'
 detC: 'TPCtot'
-
-centrality: 'k6080'
-outputDir: '/Users/mcosti/Analysis/FlowDPlus/MLanalysis/6080/unifyhighpt'
-flow_files: ['/Users/mcosti/Analysis/Datasets/6080/AnalysisResults_332636.root']
-axestokeep: ['Mass', 'sp', 'score_FD', 'Pt']
-RebinSparse:
-       Mass: 1
-       sp: 1
-       score_FD: 25
-       Pt: 1
-
 
 # fit options
 Dmeson: 'Dplus'
@@ -194,9 +190,9 @@ MassMin: [
           1.80, 
           1.80, 
           1.78, 
-          1.78, 
-          1.78, 
-          1.78, 
+          1.75, 
+          1.75, 
+          1.75, 
           1.75, 
           1.75, 
           1.75,
@@ -208,15 +204,15 @@ MassMax: [
           1.94,
           1.94, 
           1.97, 
-          1.97, 
-          1.97, 
-          1.97, 
-          1.98, 
-          1.98, 
-          1.98, 
           2.00, 
-          2.07, 
-          2.07, 
+          2.00, 
+          2.00, 
+          2.00, 
+          2.00, 
+          2.00, 
+          2.00, 
+          2.04, 
+          2.04, 
        ]
 #MassMin: [1.80, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70]
 #MassMax: [1.95, 2.04, 2.045, 2.045, 2.045, 2.045, 2.045, 2.045, 2.045, 2.04, 2.040, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04]
@@ -333,54 +329,60 @@ ReflFunc: ''
 
 # templates for corr bkg of D+
 drawvncomps: true
-IncludeKDETempls: True
+IncludeKDETempls: false
 FromGrid: true
 # To add more templates, one should do [part1, ... ,partN]
-TemplsFlags: [4]
-TemplsInputs: ['/Users/mcosti/Analysis/Datasets/Templates/AO2D_325626.root']
-TemplsTreeNames: ['O2hfcanddplite']
+TemplsFlags: [
+                     2, 
+                     # 0
+                     ]
+TemplsInputs: [
+                     '/home/mdicosta/flowDplus/kde_fit/outputDs/DsToKKPiWrongRecoPiKPi_1233.root', 
+                     # '/home/mdicosta/flowDplus/kde_fit/DplusToKKPiMisidKPi.root'
+                     ]
+TemplsTreeNames: [
+                     'DsKKPiMisidKPi', 
+                     # 'DplusKKPiMisidKPi'
+                     ]
 
 InitWeights: [
-              [500],
-              [500], #, 101],
-              [500],
-              [500],
-              [500],
-              [500],
-              [505],
-              [505],
-              [505],
-              [505],
-              [505],
-              [505]
+              # [50],
+                [50] #, 101],
+              # [50],
+              # [50],
+              # [50],
+              # [50],
+              # [50],
+              # [50],
+              # [50],
+              # [50],
+              # [50]
               ]
 MinWeights: [
-              [0],
-              [0], #, 1],
-              [0],
-              [0],
-              [0],
-              [100],
-              [100],
-              [100],
-              [100],
-              [100],
-              [100],
-              [100]
+       #       [0],
+               [0] #, 1],
+       #       [10],
+       #       [10],
+       #       [10],
+       #       [10],
+       #       [10],
+       #       [10],
+       #       [10],
+       #       [10],
+       #       [10]
              ]
 MaxWeights: [
-              [-200], 
-              [-200], #, -101],
-              [-200],
-              [-200],
-              [-200],
-              [-200],
-              [-200],
-              [-200],
-              [-200],
-              [-200],
-              [-200],
-              [-200]
+       #       [100], 
+               [100] #, -101],
+       #       [100],
+       #       [-100],
+       #       [100],
+       #       [100],
+       #       [100],
+       #       [100],
+       #       [100],
+       #       [100],
+       #       [100]
              ]
 
 # # efficiency

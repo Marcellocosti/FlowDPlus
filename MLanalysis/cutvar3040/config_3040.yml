@@ -1,0 +1,589 @@
+# global info (do not change)      
+axes: {mass: 0,
+       pt: 1,
+       cent: 2,
+       sp: 3,
+       deltaphi: 15,
+       phi: 16,
+       bdt_bkg: 4,
+       bdt_sig: 5}
+
+# axes: {mass: 0,
+#        pt: 1,
+#        cent: 2,
+#        sp: 3,
+#        occupancy: 4,
+#        evselbits: 5}
+
+
+#_______________________________________________________________________________________________________________________
+## used for computing pT weights
+Bspecie: Ball # only surport for Ball and BsBmix, empty means no B pt weights
+
+rebin: 1
+smooth: 100
+
+shapes:
+    D:
+        # fonll is mandatory
+        fonll: /Users/mcosti/Analysis/FlowDPlus/MLanalysis/PtWeights/fonll_pythia_beautyFFee_charmhadrons_5dot5tev_y0dot5.root
+        tamu:
+              enabled: true
+              file: /Users/mcosti/Analysis/DmesonAnalysis/models/tamu/PromptD0_TAMU_RAA_5TeV_3050.txt
+        #TODO: data shape for Ds?
+    B:
+        # fonll is mandatory
+        fonll: /Users/mcosti/Analysis/FlowDPlus/MLanalysis/PtWeights/fonll_pythia_beautyFFee_charmhadrons_5dot5tev_y0dot5.root
+        tamu:
+            enabled: true
+            file: 
+                B: /Users/mcosti/Analysis/DmesonAnalysis/models/tamu/B_TAMU_RAA_5TeV_3050.txt
+                Bs: ''
+
+
+harmonic: 2 # 2: v2, 3: v3, etc.
+
+# pt bins
+ptmins: [
+           0.5,
+           1.0,
+           1.5,
+           2.0,
+           2.5,
+           3.0,
+           3.5,
+           4.0,
+           5.0,
+           6.0,
+           7.0,
+           8.0,
+           10.0,
+           12.0,
+           16.0
+       ]
+ptmaxs: [
+           1.0,
+           1.5,
+           2.0,
+           2.5,
+           3.0,
+           3.5,
+           4.0,
+           5.0,
+           6.0,
+           7.0,
+           8.0,
+           10.0,
+           12.0,
+           16.0,
+           24.0
+       ]
+
+# inv_mass_bins (one for each pt bin)
+inv_mass_bins: [
+                 [1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,2.0,2.05],
+                 [1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,2.0,2.05],
+                 [1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,2.0,2.05],
+                 [1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,2.0,2.05],
+                 [1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,2.0,2.05],
+                 [1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,2.0,2.05],
+                 [1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,2.0,2.05],
+                 [1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,2.0,2.05],
+                 [1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,2.0,2.05],
+                 [1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,2.0,2.05],
+                 [1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,2.0,2.05],
+                 [1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,2.0,2.05],
+                 [1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,2.0,2.05],
+                 [1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,2.0,2.05],
+                 [1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,2.0,2.05],
+]
+use_inv_mass_bins: false
+
+
+# bdt cut
+apply_btd_cuts: true # apply bdt cuts
+bkg_ml_cuts: [
+              0.01, 
+              0.01, 
+              0.02, 
+              0.02, 
+              0.02, 
+              0.02, 
+              0.03,
+              0.06, 
+              0.06, 
+              0.06, 
+              0.06, 
+              0.06, 
+              0.06, 
+              0.06,
+              ] # max probability for bkg, one for each pt bin
+sig_ml_cuts: [
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0, 
+              0.0
+              ]       # min probability for sig, one for each pt bin
+
+# cut variation
+cut_variation:
+       corr_bdt_cut:
+              bkg_max: [0.01, 0.01, 0.01, 0.02, 0.02, 0.02, 0.02, 0.03, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06]
+              sig: # the max value is not contained in the range
+                     min: [0.0, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05] #, 0.15, 0.15, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+                     max: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+                     step: [0.10, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05]
+       uncorr_bdt_cut:
+            bkg_max: # max probability for bkg, one for each pt bin
+                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 1
+                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 2
+                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 3
+                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 4
+                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 5
+                - [0.001, 0.001, 0.001, 0.008, 0.0006] # pt 6
+            sig:
+                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 1
+                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 1
+                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 2
+                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 2
+                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 3
+                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 3
+                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 4
+                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 4
+                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 5
+                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 5
+                - min: [0.00, 0.30, 0.45, 0.70, 0.97] # min pt 6
+                  max: [0.30, 0.45, 0.70, 0.97, 1.00] # max pt 6
+
+minimisation:
+    correlated: true # true --> fully correlated, false --> fully uncorrelated
+    doRawYieldSmearing: false # whether to smear the yields with a poissonian error
+    setseed: false # set the seed for Poissonian smearing
+    applyEffVariation:
+        enable: false
+        relvariation: 0.05
+        option: decreasing # available options: [upshift, downshift, decreasing, increasing]
+        prompt: true
+        feeddown: true
+
+# ep/sp subevents
+detA: 'FT0c'
+detB: 'FT0a'
+detC: 'TPCtot'
+MC_filename: /Users/mcosti/Analysis/Datasets/eff/AnalysisResults_3050_334909.root
+eff_filename: /Users/mcosti/Analysis/Datasets/eff/AnalysisResults_3050_334909.root
+
+skimDir: /Users/mcosti/Analysis/Datasets/3050/skim3040bkgstrict/pre/AnRes
+axestokeep: ['Mass', 'sp', 'score_FD', 'Pt']
+# RebinSparse:
+#        Mass: 1
+#        sp: 1
+#        score_FD: 25
+#        Pt: 1
+
+#_______________________________________________________________________________________________________________________
+## used for compute_frac_cut_var.py 
+histoNameRaw: hRawYieldsSimFit # also ComputeV2vsFDFrac.py
+histoNameEffPrompt: hEffPrompt
+histoNameEffFD: hEffFD
+linearplot: 
+    enable: true #enable linear plots NpromptVsNFD
+    uncbands: true #enable upper/lower linear plots limits
+    outfileformat: ['png', 'pdf', 'jpg'] # linear plot saved in different output formats (e.g. png, pdf, etc.). Plots are already saved in the ouput TFile
+
+
+# fit options
+Dmeson: 'Dplus'
+br: 0.0938 # branching ratio
+FixSigma: [
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+           1,
+          ] 
+SigmaFile: ''
+SigmaMultFactor: 1.
+FixMean: [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+         ]
+NSigma4SB: [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            3,
+            3,
+            1
+           ]
+MeanFile: ''
+MassMin: [
+          1.71, 
+          1.75, 
+          1.75, 
+          1.75, 
+          1.75, 
+          1.75,
+          1.75, 
+          1.75, 
+          1.75, 
+          1.75, 
+          1.75, 
+          1.75,
+          1.70, 
+          1.70, 
+          1.70, 
+       ]
+MassMax: [
+          2.04,
+          2.00,
+          2.00, 
+          2.00, 
+          2.00, 
+          2.00, 
+          2.00, 
+          2.00, 
+          2.00, 
+          2.00,
+          2.00,
+          2.00,
+          2.00, 
+          2.04, 
+          2.04, 
+       ]
+#MassMin: [1.80, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70]
+#MassMax: [1.95, 2.04, 2.045, 2.045, 2.045, 2.045, 2.045, 2.045, 2.045, 2.04, 2.040, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04]
+Rebin: [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        4,
+        4,
+       ]
+InclSecPeak: [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+             ]
+Sigma: [
+        0.012,
+        0.012,
+        0.012,
+        0.012,
+        0.012,
+        0.012,
+        0.012,
+        0.020,
+        0.020,
+        0.020,
+        0.020,
+        0.020,
+        0.020,
+        0.025,
+        0.025
+       ]
+SigmaSecPeak: [
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008,
+               0.008
+              ]
+SigmaFileSecPeak: ''
+SigmaMultFactorSecPeak: 1.
+FixSigmaToFirstPeak: 0
+UseLikelihood: 1
+BkgFunc: [ 
+           'kPol3',
+           'kLin',
+           'kLin', 
+           'kLin', 
+           'kLin', 
+           'kLin', 
+           'kLin', 
+           'kExpo', 
+           'kLin', 
+           'kLin', 
+           'kLin', 
+           'kLin', 
+           'kLin', 
+           'kLin',
+           'kLin', 
+         ]
+SgnFunc: [
+          'kGaus',
+          'kGaus',
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus',
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus', 
+          'kGaus',
+          'kGaus',
+       ]
+BkgFuncVn: [
+            'kLin', 
+            'kLin', 
+            'kLin',   
+            'kLin',   
+            'kLin',   
+            'kLin',   
+            'kLin', 
+            'kLin', 
+            'kLin', 
+            'kLin', 
+            'kLin', 
+            'kLin', 
+            'kLin', 
+            'kLin', 
+            'kLin',
+           ]
+# InitBkg: [
+       #      'kLin', 
+       #      'kLin',   
+       #      'kLin',   
+        # [[14000, 0, -1], [16000,0,-1]],
+       #      'kLin',   
+       #      'kLin', 
+       #      'kLin', 
+       #      'kLin', 
+       #      'kLin', 
+       #      'kLin', 
+       #      'kLin', 
+       #      'kLin',
+      #  ]
+
+FixSigmaRatio: 0 # used only if SgnFunc = kGausSigmaRatioPar
+SigmaRatioFile: ""
+BoundMean: 0 # 0: Do not set limits on mean range, 1: the mean is set to be between MassMin[i] and MassMax[i]
+InclRefl: false
+enableRef: false
+ReflFile: ''
+ReflFunc: ''
+
+DrawVnComps: true
+# templates for corr bkg of D+
+IncludeKDETempls: [
+            0, 
+            0, 
+            0, 
+            0,   
+            0,   
+            0,   
+            0, 
+            0, 
+            0, 
+            0, 
+            0, 
+            0, 
+            0, 
+            0, 
+            0,
+              ]
+FromGrid: true
+# To add more templates, one should do [part1, ... ,partN]
+TemplsFlags: [2]
+TemplsInputs: ['/Users/mcosti/Analysis/Datasets/Templates/AO2D_325626.root']
+TemplsTreeNames: ['O2hfcanddplite']
+
+InitWeights: [
+            [500], 
+            [500], 
+            [500], 
+            [500],   
+            [500],   
+            [500],   
+            [500], 
+            [500], 
+            [500], 
+            [500], 
+            [500], 
+            [500], 
+            [500], 
+            [500], 
+            [500],
+              ]
+MinWeights: [
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+             ]
+MaxWeights: [
+              [1000], 
+              [1000], 
+              [1000], 
+              [1000],
+              [1000],
+              [1000],
+              [1000],
+              [1000],
+              [1000],
+              [1000],
+              [1000],
+              [1000],
+              [1000],
+              [1000],
+              [1000]
+             ]
+
+FixVnTemplToSgn: [
+                     0, 
+                     0, 
+                     0, 
+                     0, 
+                     0,
+                     0,
+                     0,
+                     0,
+                     0,
+                     0,
+                     0,
+                     0,
+                     0,
+                     0,
+                     0
+                 ]
+VnInitWeights: [
+              [0.1],
+              [0.1],
+              [0.1],
+              [0.1],
+              [0.1],
+              [0.1],
+              [0.1],
+              [0.1],
+              [0.1],
+              [0.1],
+              [0.1],
+              [0.1],
+              [0.1],
+              [0.1],
+              [0.1]
+              ]
+VnMinWeights: [
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0]
+             ]
+VnMaxWeights: [
+              [0.2], 
+              [0.2], 
+              [0.2], 
+              [0.2],
+              [0.2],
+              [0.2],
+              [0.2],
+              [0.2],
+              [0.2],
+              [0.2],
+              [0.2],
+              [0.2],
+              [0.2],
+              [0.2],
+              [0.2]
+             ]

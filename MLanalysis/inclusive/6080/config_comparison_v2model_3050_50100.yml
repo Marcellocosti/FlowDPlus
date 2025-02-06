@@ -1,0 +1,61 @@
+inputs:
+    dirname: null # leave null if not common for all input files
+    filenames: [/Users/mcosti/Analysis/FlowDPlus/MLanalysis/inclusive/6080/sp/ry/raw_yieldsmodel3050.root, 
+                /Users/mcosti/Analysis/FlowDPlus/MLanalysis/PAG/6080/allstat/sp/ry/raw_yieldsallstat_6080.root]
+    objectnames: [gvnSimFit, gvnSimFit] # can be either histograms of graphs or a mix of them; they will be drawn in the current order
+
+output: 
+    filename: /Users/mcosti/Analysis/FlowDPlus/MLanalysis/inclusive/6080/v2Overlap_3050_50100 # with path and w/o extension
+    extensions: [pdf, root] # possibilities: pdf, eps, png, root
+
+options:
+    ROOTobject: [TGraph, TGraph] # TH1 or TGraph: no need to specify TH1F, TH1D or TGraphErrors, TGraphAsymmErrors
+    scale: [1., 1.]
+    lambdaParams: [1., 1.] # counts -> (counts - 1) * lambda + 1
+    normalize: [false, false] # divide histogram by its area
+    colors: [kRed+1, kAzure+4]
+    markers: [kFullCircle, kFullCircle]
+    markersize: 1.5
+    linewidth: 2
+    fillstyle: [1,1]
+    fillalpha: [1,1]
+    drawopt: [pez, pez]
+    
+    ratio: 
+        enable: false
+        uncertainties:
+            enable: false
+            corr: false
+        displayRMS: true
+
+    errcomp: # comparison of uncertainties
+        enable: true
+        relative: true
+
+    legend:
+        avoid: false #set true to avoid the legend in the final plot
+        xlimits: [0.2, 0.6]
+        ylimits: [0.6, 0.9]
+        header: null
+        titles: ['model 3050', 'model 50100', left and right, wide left, wide right, wide left and right, alt step 1, alt step 2]
+        options: [lp, lp]
+        textsize: 0.045
+        ncolumns: 1
+
+    canvas:
+        width: 800
+        heigth: 800
+        xaxistitle: '#it{p}_{T} (GeV/#it{c})'
+        yaxistitle: '#it{v}_{2} inclusive (D^{+})' # (D^{+})'
+        xlimits: [0.8, 30.]
+        ylimits: [-0.1, 0.3]
+        ylimitsratio: [0., 2.]
+        ylimitserr: [0., 0.35]
+        logy: false
+        logx: true
+        ratio:
+            logy: false
+            logx: false
+        errcomp:
+            logy: false
+            logx: false  

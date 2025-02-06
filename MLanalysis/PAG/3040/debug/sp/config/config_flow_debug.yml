@@ -1,0 +1,265 @@
+# global info (do not change)      
+axes: {mass: 0,
+       pt: 1,
+       cent: 2,
+       sp: 3,
+       deltaphi: 15,
+       phi: 16,
+       bdt_bkg: 4,
+       bdt_sig: 5}
+
+# axes: {mass: 0,
+#        pt: 1,
+#        cent: 2,
+#        sp: 3,
+#        occupancy: 4,
+#        evselbits: 5}
+
+harmonic: 2 # 2: v2, 3: v3, etc.
+
+# pt bins
+ptmins: [
+           2.5,
+       ]
+ptmaxs: [
+           3.0,
+       ]
+
+# inv_mass_bins (one for each pt bin)
+inv_mass_bins: [ 
+                 [1.70,1.75,1.80,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.95,2.0,2.05]
+]
+use_inv_mass_bins: false
+
+
+# bdt cut
+apply_btd_cuts: true # apply bdt cuts
+bkg_ml_cuts: [
+              0.02, 
+              ] # max probability for bkg, one for each pt bin
+sig_ml_cuts: [
+              0.10, 
+              ]       # min probability for sig, one for each pt bin
+
+cut_variation:
+  bdt_cut:
+    bkg:
+      min: [0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+      max: [0.004, 0.2, 0.4, 0.4, 0.4, 0.4, 0.4]
+      step: [0.002, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+    sig:
+      min: [0.5, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+      max: [1.0, 0.6, 0.8, 0.8, 0.8, 0.8, 0.8]
+      step: [0.5, 0.4, 0.2, 0.2, 0.2, 0.2, 0.2]
+
+# cut_variation:
+#        bdt_cut: {
+#               bkg: { 
+#                      min: [0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+#                      max: [0.004, 0.2, 0.4, 0.4, 0.4, 0.4, 0.4],
+#                      step: [0.002, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+#                        },
+#               sig: { 
+#                      min: [0.5, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2],
+#                      max: [1.0, 0.6, 0.8, 0.8, 0.8, 0.8, 0.8],
+#                      step: [0.5, 0.4, 0.2, 0.2, 0.2, 0.2, 0.2]
+#                        }     
+#        }
+
+
+# ep/sp subevents
+detA: 'FT0c'
+detB: 'FT0a'
+detC: 'TPCtot'
+
+axestokeep: ['Mass', 'sp', 'score_FD']
+RebinSparse:
+       Mass: 4
+       sp: 1
+       score_FD: 25
+
+# fit options
+Dmeson: 'Dplus'
+br: 0.0938 # branching ratio
+FixSigma: [
+           1,
+          ] 
+SigmaFile: ''
+SigmaMultFactor: 1.
+FixMean: [
+          0,
+          ]
+NSigma4SB: [
+            4,
+           ]
+MeanFile: ''
+MassMin: [
+          1.75, 
+       ]
+MassMax: [
+          2.00, 
+       ]
+#MassMin: [1.80, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70, 1.70]
+#MassMax: [1.95, 2.04, 2.045, 2.045, 2.045, 2.045, 2.045, 2.045, 2.045, 2.04, 2.040, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04, 2.04]
+Rebin: [
+        2,
+       ]
+InclSecPeak: [
+              0,
+             ]
+Sigma: [
+        0.012,
+       ]
+SigmaSecPeak: [
+               0.008,
+               ]
+SigmaFileSecPeak: ''
+SigmaMultFactorSecPeak: 1.
+FixSigmaToFirstPeak: 0
+UseLikelihood: 1
+BkgFunc: [ 
+           'kLin',  
+         ]
+SgnFunc: [
+          'kGaus', 
+          ]
+BkgFuncVn: [
+            'kLin',   
+          ]
+
+FixSigmaRatio: 0 # used only if SgnFunc = kGausSigmaRatioPar
+SigmaRatioFile: ""
+BoundMean: 0 # 0: Do not set limits on mean range, 1: the mean is set to be between MassMin[i] and MassMax[i]
+InclRefl: false
+enableRef: false
+ReflFile: ''
+ReflFunc: ''
+
+# templates for corr bkg of D+
+drawvncomps: true
+IncludeKDETempls: [1]
+FromGrid: true
+TemplsFlags: [2]
+TemplsInputs: ['/Users/mcosti/Analysis/Datasets/Templates/AO2D_325626.root']
+TemplsTreeNames: ['O2hfcanddplite']
+
+InitWeights: [
+            # [500], 
+            # [500], 
+            # [500],   
+            # [500],   
+            # [500],   
+            # [500], 
+            [500], 
+            # [500], 
+            # [500], 
+            # [500], 
+            # [500], 
+            # [500], 
+            # [500], 
+            # [500],
+              ]
+MinWeights: [
+              # [0],
+              # [0],
+              # [0],
+              # [0],
+              # [0],
+              # [0],
+              [0],
+              # [0],
+              # [0],
+              # [0],
+              # [0],
+              # [0],
+              # [0],
+              # [0],
+              # [0],
+             ]
+MaxWeights: [
+              # [1000], 
+              # [1000], 
+              # [1000],
+              # [1000],
+              # [1000],
+              # [1000],
+              [1000],
+              # [1000],
+              # [1000],
+              # [1000],
+              # [1000],
+              # [1000],
+              # [1000],
+              # [1000]
+             ]
+
+FixVnTemplToSgn: [
+                    #  0, 
+                    #  0, 
+                    #  0, 
+                    #  0,
+                    #  0,
+                    #  0,
+                     0,
+                    #  0,
+                    #  0,
+                    #  0,
+                    #  0,
+                    #  0,
+                    #  0,
+                    #  0
+                 ]
+VnInitWeights: [
+              # [0.1],
+              # [0.1],
+              # [0.1],
+              # [0.1],
+              # [0.1],
+              # [0.1],
+              [0.1],
+              # [0.1],
+              # [0.1],
+              # [0.1],
+              # [0.1],
+              # [0.1],
+              # [0.1],
+              # [0.1]
+              ]
+VnMinWeights: [
+              # [0],
+              # [0],
+              # [0],
+              # [0],
+              # [0],
+              # [0],
+              [0],
+              # [0],
+              # [0],
+              # [0],
+              # [0],
+              # [0],
+              # [0],
+              # [0]
+             ]
+VnMaxWeights: [
+              # [0.2], 
+              # [0.2], 
+              # [0.2],
+              # [0.2],
+              # [0.2],
+              # [0.2],
+              [0.2],
+              # [0.2],
+              # [0.2],
+              # [0.2],
+              # [0.2],
+              # [0.2],
+              # [0.2],
+              # [0.2]
+             ]
+
+## used for ComputeV2vsFDFrac.py
+histoNameV2: hvnSimFit
+graphNameV2: gvnSimFit
+histoNameFracFD: hFDFrac
+histoNameFracPrompt: hPromptFrac
