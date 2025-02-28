@@ -2,10 +2,10 @@
 
 export config_flow="/home/mdicosta/FlowDplus/FinalResults/3040final/config_3040_combined.yml"
 export preprocessed=True
-export docw=True
-export domy=True 
-export doprojdata=True
-export doprojmc=True
+export docw=False
+export domy=False 
+export doprojdata=False
+export doprojmc=False
 export doeff=True
 export dovn=True
 export dofcv=True
