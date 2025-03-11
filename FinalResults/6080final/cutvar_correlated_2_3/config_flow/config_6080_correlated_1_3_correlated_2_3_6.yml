@@ -1,0 +1,320 @@
+centrality: 'k6080' 
+anresdir: '' 
+res_file: '/home/mdicosta/Datasets/Reso/resosp6080l_PASS4_full_PbPb_Reso_syst.root'
+out_dir: '/home/mdicosta/FlowDplus/FinalResults/6080final'
+skim_out_dir: /home/mdicosta/Datasets/6080/skim6080_338691/
+suffix: 'correlated_2_3'
+vn_method: 'sp'
+Dmeson: 'Dplus'
+nworkers: 38
+
+minimisation:
+    correlated: true # true --> fully correlated, false --> fully uncorrelated
+
+# ep/sp subevents
+detA: 'FT0c'
+detB: 'FV0a'
+detC: 'TPCtot'
+
+eff_filename: /home/mdicosta/Datasets/eff/361926_manual_merge/MERGED_361296.root
+
+
+axestokeep: ['Mass', 'sp', 'score_FD', 'score_bkg', 'Pt']
+harmonic: 2 # 2: v2, 3: v3, etc.
+
+
+
+## used for computing pT weights
+Bspecie: Ball # only surport for Ball and BsBmix, empty means no B pt weights
+rebin: 1
+smooth: 100
+shapes:
+    D:
+        # fonll is mandatory
+        fonll: /home/mdicosta/FlowDplus/MLanalysis/PtWeights/fonll_pythia_beautyFFee_charmhadrons_5dot5tev_y0dot5.root
+        tamu:
+              enabled: true
+              file: /home/mdicosta/alice/DmesonAnalysis/models/tamu/PromptD0_TAMU_RAA_5TeV_3050.txt
+        #TODO: data shape for Ds?
+    B:
+        # fonll is mandatory
+        fonll: /home/mdicosta/FlowDplus/MLanalysis/PtWeights/fonll_pythia_beautyFFee_charmhadrons_5dot5tev_y0dot5.root
+        tamu:
+            enabled: true
+            file: 
+                B: /home/mdicosta/alice/DmesonAnalysis/models/tamu/B_TAMU_RAA_5TeV_3050.txt
+                Bs: ''
+
+# pt bins
+ptmins: [
+        #    1.0,
+        #    1.5,
+           2.0,
+           2.5,
+        #    3.0,
+        #    3.5,
+        #    4.0,
+        #    5.0,
+        #    6.0,
+       #     7.0,
+       #     8.0,
+        #    10.0,
+        #    12.0,
+        #    16.0
+       ]
+ptmaxs: [
+        #    1.5,
+        #    2.0,
+           2.5,
+           3.0,
+        #    3.5,
+        #    4.0,
+        #    5.0,
+        #    6.0,
+        #    7.0,
+       #     8.0,
+       #     10.0,
+        #    12.0,
+        #    16.0,
+        #    24.0
+       ]
+
+# inv_mass_bins (one for each pt bin)
+inv_mass_bins: [
+                #  [1.70,1.72,1.74,1.76,1.78,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,1.98,2.00,2.02,2.04],
+                #  [1.70,1.72,1.74,1.76,1.78,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,1.98,2.00,2.02,2.04],
+                 [1.70,1.72,1.74,1.76,1.78,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,1.98,2.00,2.02,2.04],
+                 [1.70,1.72,1.74,1.76,1.78,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,1.98,2.00,2.02,2.04],
+                #  [1.70,1.72,1.74,1.76,1.78,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,1.98,2.00,2.02,2.04],
+                #  [1.70,1.72,1.74,1.76,1.78,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,1.98,2.00,2.02,2.04],
+                #  [1.70,1.72,1.74,1.76,1.78,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,1.98,2.00,2.02,2.04],
+                #  [1.70,1.72,1.74,1.76,1.78,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,1.98,2.00,2.02,2.04],
+                #  [1.70,1.72,1.74,1.76,1.78,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,1.98,2.00,2.02,2.04],
+              #    [1.70,1.72,1.74,1.76,1.78,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.94,1.96,1.98,2.00,2.02,2.04],
+              #    [1.65,1.66,1.67,1.68,1.69,1.70,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80,1.81,1.82,1.83,1.84,1.85,1.86,1.87,1.88,1.89,1.90,1.91,1.92,1.93,1.94,1.95,1.96,1.97,1.98,1.99,2.00,2.01,2.02,2.03,2.04,2.05],
+                #  [1.65,1.69,1.73,1.77,1.81,1.83,1.85,1.87,1.89,1.91,1.93,1.97,2.01,2.05],
+                #  [1.65,1.69,1.73,1.77,1.81,1.83,1.85,1.87,1.89,1.91,1.93,1.97,2.01,2.05,2.09,2.13,2.17],
+                #  [1.65,1.69,1.73,1.77,1.81,1.83,1.85,1.87,1.89,1.91,1.93,1.97,2.01,2.05,2.09,2.13,2.17],
+                ]
+use_inv_mass_bins: false
+
+# cut variation
+cut_variation:
+       corr_bdt_cut:
+              bkg_max: [0.11, 0.11] #, 0.1, 0.1, 0.1, 0.08, 0.08] #, 0.03, 0.03] #, 0.02, 0.02, 0.02]
+              sig: # the max value is not contained in the range
+                     min: [0.05, 0.05] #, 0.10, 0.10, 0.10, 0.10, 0.10] #, 0.04, 0.04] #, 0.05, 0.05, 0.05]
+                     max: [0.98, 0.98] #, 0.85, 0.85, 0.85, 0.80, 0.80] #, 0.95, 0.95] #, 0.60, 0.60, 0.60]
+                     step: [0.025, 0.025] #, 0.05, 0.05, 0.05, 0.05, 0.05] #, 0.025, 0.025] #, 0.10, 0.10, 0.10]
+
+# fit options
+FixSigma: [
+        #    0,
+        #    0,
+           0,
+           0,
+        #    0,
+        #    0,
+        #    0,
+        #    0,
+        #    0,
+       #     0,
+       #     0,
+        #    0,
+        #    0,
+        #    0,
+          ] 
+SigmaFile: ''
+SigmaMultFactor: 1.
+FixMean: [
+        #   1,
+        #   1,
+          1,
+          1,
+        #   1,
+        #   1,
+        #   1,
+        #   1,
+        #   1,
+       #    1,
+       #    1,
+        #   1,
+        #   1,
+        #   1
+         ]
+NSigma4SB: [
+            # 4,
+            # 4,
+            4,
+            4,
+            # 4,
+            # 4,
+            # 4,
+            # 4,
+            # 4,
+       #      4,
+       #      4,
+            # 3,
+            # 3,
+            # 1
+           ]
+MeanFile: ''
+MassMin: [
+        #   1.75, 
+        #   1.71,
+          1.75, 
+          1.75,
+        #   1.705, 
+        #   1.705, 
+        #   1.705, 
+        #   1.705, 
+        #   1.70, 
+       #    1.70,
+       #    1.65, 
+        #   1.65, 
+        #   1.65, 
+        #   1.65, 
+       ]
+MassMax: [
+        #   2.00,
+        #   2.00,
+          2.00, 
+          2.00, 
+        #   2.00, 
+        #   2.00, 
+        #   1.95, 
+        #   1.95,
+        #   1.95,
+       #    1.95,
+       #    1.97, 
+        #   2.04, 
+        #   2.17, 
+        #   2.17, 
+       ]
+Rebin: [
+        # 2,
+        # 2,
+        2,
+        2,
+        # 2,
+        # 2,
+        # 2,
+        # 2,
+        # 2,
+       #  2,
+       #  3,
+        # 4,
+        # 8,
+        # 12,
+       ]
+InclSecPeak: [
+            #   0,
+            #   0,
+              0,
+              0,
+            #   0,
+            #   0,
+            #   0,
+            #   0,
+            #   0,
+              # 0,
+              # 0,
+            #   0,
+            #   0,
+            #   0,
+             ]
+Sigma: [
+        # 0.012,
+        # 0.012,
+        0.012,
+        0.012,
+        # 0.012,
+        # 0.012,
+        # 0.020,
+        # 0.020,
+        # 0.020,
+       #  0.020,
+       #  0.020,
+        # 0.020,
+        # 0.025,
+        # 0.025
+       ]
+SigmaSecPeak: [
+            #    0.008,
+            #    0.008,
+               0.008,
+               0.008,
+            #    0.008,
+            #    0.008,
+            #    0.008,
+            #    0.008,
+            #    0.008,
+              #  0.008,
+              #  0.008,
+            #    0.008,
+            #    0.008,
+            #    0.008
+              ]
+SigmaFileSecPeak: ''
+SigmaMultFactorSecPeak: 1.
+FixSigmaToFirstPeak: 0
+UseLikelihood: 1
+BkgFunc: [ 
+        #    'kLin',
+        #    'kLin',
+           'kLin', 
+           'kLin', 
+        #    'kLin', 
+        #    'kLin', 
+        #    'kLin', 
+        #    'kLin', 
+        #    'kLin', 
+       #     'kLin', 
+       #     'kLin', 
+        #    'kLin', 
+        #    'kLin',
+        #    'kLin', 
+         ]
+SgnFunc: [
+        #   'kGaus',
+        #   'kGaus',
+          'kGaus', 
+          'kGaus', 
+        #   'kGaus', 
+        #   'kGaus', 
+        #   'kGaus',
+        #   'kGaus', 
+        #   'kGaus', 
+       #    'kGaus', 
+       #    'kGaus', 
+        #   'kGaus', 
+        #   'kGaus',
+        #   'kGaus',
+       ]
+BkgFuncVn: [
+            # 'kLin', 
+            # 'kLin', 
+            'kLin',   
+            'kLin',   
+            # 'kLin',   
+            # 'kLin',   
+            # 'kLin', 
+            # 'kLin', 
+            # 'kLin', 
+       #      'kLin', 
+       #      'kLin',
+            # 'kLin', 
+            # 'kLin', 
+            # 'kLin',
+           ]
+
+FixSigmaRatio: 0 # used only if SgnFunc = kGausSigmaRatioPar
+SigmaRatioFile: ""
+BoundMean: 0 # 0: Do not set limits on mean range, 1: the mean is set to be between MassMin[i] and MassMax[i]
+InclRefl: false
+enableRef: false
+ReflFile: ''
+ReflFunc: ''
+
+DrawVnComps: false
+IncludeTempls: False

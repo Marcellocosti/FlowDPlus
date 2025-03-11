@@ -1,0 +1,241 @@
+BkgFunc:
+- kLin
+BkgFuncVn:
+- kLin
+BoundMean: 0
+Bspecie: Ball
+Dmeson: Dplus
+DrawVnComps: false
+FixMean:
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+FixSigma:
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+FixSigmaRatio: 0
+FixSigmaToFirstPeak: 0
+InclRefl: false
+InclSecPeak:
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+- 0
+IncludeTempls: false
+MassMax:
+- 2.1599999999999966
+MassMin:
+- 1.65
+MeanFile: ''
+NSigma4SB:
+- 4
+- 4
+- 4
+- 4
+- 4
+- 4
+- 4
+- 4
+- 4
+- 4
+- 4
+- 3
+- 3
+- 1
+Rebin:
+- 2
+ReflFile: ''
+ReflFunc: ''
+SgnFunc:
+- kGaus
+- kGaus
+- kGaus
+- kGaus
+- kGaus
+- kGaus
+- kGaus
+- kGaus
+- kGaus
+- kGaus
+- kGaus
+- kGaus
+- kGaus
+- kGaus
+Sigma:
+- 0.025
+SigmaFile: ''
+SigmaFileSecPeak: ''
+SigmaMultFactor: 1.0
+SigmaMultFactorSecPeak: 1.0
+SigmaRatioFile: ''
+SigmaSecPeak:
+- 0.008
+- 0.008
+- 0.008
+- 0.008
+- 0.008
+- 0.008
+- 0.008
+- 0.008
+- 0.008
+- 0.008
+- 0.008
+- 0.008
+- 0.008
+- 0.008
+UseLikelihood: 1
+anresdir: ''
+axestokeep:
+- Mass
+- sp
+- score_FD
+- score_bkg
+- Pt
+centrality: k3040
+combined: true
+correlatedPath: /home/mdicosta/FlowDplus/FinalResults/3040final/cutvar_correlated
+cut_variation:
+  corr_bdt_cut:
+    bkg_max:
+    - 0.02
+    sig:
+      max:
+      - 0.6
+      min:
+      - 0.04
+      step:
+      - 0.015
+  uncorr_bdt_cut:
+    bkg_max:
+    - - 0.15
+      - 0.15
+      - 0.15
+      - 0.05
+    sig:
+    - max:
+      - 0.4
+      - 0.6
+      - 0.75
+      - 1.0
+      min:
+      - 0.0
+      - 0.4
+      - 0.6
+      - 0.75
+detA: FT0c
+detB: FV0a
+detC: TPCtot
+eff_filename: /home/mdicosta/Datasets/eff/AnalysisResults_3050_334909.root
+enableRef: false
+flow_files:
+- /home/mdicosta/Datasets/3050/MERGED_0.root
+- /home/mdicosta/Datasets/3050/MERGED_1.root
+- /home/mdicosta/Datasets/3050/MERGED_2.root
+- /home/mdicosta/Datasets/3050/MERGED_3.root
+- /home/mdicosta/Datasets/3050/MERGED_4.root
+- /home/mdicosta/Datasets/3050/MERGED_5.root
+- /home/mdicosta/Datasets/3050/MERGED_6.root
+- /home/mdicosta/Datasets/3050/MERGED_7.root
+- /home/mdicosta/Datasets/3050/MERGED_8.root
+- /home/mdicosta/Datasets/3050/MERGED_9.root
+- /home/mdicosta/Datasets/3050/MERGED_10.root
+harmonic: 2
+inv_mass_bins:
+- - 1.65
+  - 1.6649999999999998
+  - 1.6799999999999997
+  - 1.6949999999999996
+  - 1.7099999999999995
+  - 1.7249999999999994
+  - 1.7399999999999993
+  - 1.7549999999999992
+  - 1.7699999999999991
+  - 1.784999999999999
+  - 1.799999999999999
+  - 1.8149999999999988
+  - 1.8299999999999987
+  - 1.8449999999999986
+  - 1.8599999999999985
+  - 1.8749999999999984
+  - 1.8899999999999983
+  - 1.9049999999999983
+  - 1.9199999999999982
+  - 1.934999999999998
+  - 1.949999999999998
+  - 1.9649999999999979
+  - 1.9799999999999978
+  - 1.9949999999999977
+  - 2.0099999999999976
+  - 2.0249999999999977
+  - 2.0399999999999974
+  - 2.054999999999997
+  - 2.069999999999997
+  - 2.0849999999999973
+  - 2.099999999999997
+  - 2.1149999999999967
+  - 2.129999999999997
+  - 2.144999999999997
+  - 2.1599999999999966
+minimisation:
+  combined: true
+  correlated: false
+nworkers: 1
+out_dir: /home/mdicosta/FlowDplus/FinalResults/3040final/fitsyst/latest/trails/pt_120_160
+ptmaxs:
+- 16.0
+ptmins:
+- 12.0
+rebin: 1
+res_file: /home/mdicosta/Datasets/Reso/resosp3040l_PASS4_full_PbPb_Reso.root
+shapes:
+  B:
+    fonll: /home/mdicosta/FlowDplus/MLanalysis/PtWeights/fonll_pythia_beautyFFee_charmhadrons_5dot5tev_y0dot5.root
+    tamu:
+      enabled: true
+      file:
+        B: /home/mdicosta/alice/DmesonAnalysis/models/tamu/B_TAMU_RAA_5TeV_3050.txt
+        Bs: ''
+  D:
+    fonll: /home/mdicosta/FlowDplus/MLanalysis/PtWeights/fonll_pythia_beautyFFee_charmhadrons_5dot5tev_y0dot5.root
+    tamu:
+      enabled: true
+      file: /home/mdicosta/alice/DmesonAnalysis/models/tamu/PromptD0_TAMU_RAA_5TeV_3050.txt
+skimDir: /home/mdicosta/Datasets/3050/skim3040keepbkg/pre/AnRes/
+skim_out_dir: /home/mdicosta/FlowDplus/FinalResults/3040final/fitsyst/latest
+smooth: 100
+suffix: config_3040_combined_FixSigma-2_BkgFuncVn-0_BkgFunc-0_Rebin-0_inv_mass_bins-5_MassMin-5_MassMax-5
+use_inv_mass_bins: false
+vn_method: sp

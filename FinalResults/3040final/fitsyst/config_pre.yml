@@ -1,0 +1,59 @@
+flow_files: [
+  /home/mdicosta/Datasets/3050/MERGED_0.root,
+  /home/mdicosta/Datasets/3050/MERGED_1.root,
+  /home/mdicosta/Datasets/3050/MERGED_2.root,
+  /home/mdicosta/Datasets/3050/MERGED_3.root,
+  /home/mdicosta/Datasets/3050/MERGED_4.root,
+  /home/mdicosta/Datasets/3050/MERGED_5.root,
+  /home/mdicosta/Datasets/3050/MERGED_6.root,
+  /home/mdicosta/Datasets/3050/MERGED_7.root,
+  /home/mdicosta/Datasets/3050/MERGED_8.root,
+  /home/mdicosta/Datasets/3050/MERGED_9.root,
+  /home/mdicosta/Datasets/3050/MERGED_10.root,
+]
+
+ptmins: [
+       #     0.5,
+           1.0,
+           1.5,
+           2.0,
+           2.5,
+           3.0,
+           3.5,
+           4.0,
+           5.0,
+           6.0,
+           7.0,
+           8.0,
+           10.0,
+           12.0,
+           16.0,
+       ]
+ptmaxs: [
+       #     1.0,
+           1.5,
+           2.0,
+           2.5,
+           3.0,
+           3.5,
+           4.0,
+           5.0,
+           6.0,
+           7.0,
+           8.0,
+           10.0,
+           12.0,
+           16.0,
+           24.0,
+       ]
+
+centrality: 'k3040'
+skim_out_dir: '/home/mdicosta/Datasets/3050/skim3040keepbkg'
+bkg_cuts: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.2, 0.2, 0.2, 0.2]
+axestokeep: ['Mass', 'sp', 'score_FD', 'score_bkg', 'Pt']
+RebinSparse:
+       Mass: 2
+       sp: 1
+       score_FD: 1
+       score_bkg: 1
+       Pt: 1

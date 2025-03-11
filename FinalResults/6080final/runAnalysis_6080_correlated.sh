@@ -10,7 +10,7 @@ export doeff=True
 export dovn=True
 export dofcv=True
 export doddf=True
-export dov2vf=False
+export dov2vf=True
 export domergeimages=True
 
 export usepreprocessed=$([ "$usepreprocessed" = "False" ] && echo "" || echo "--use_preprocessed")

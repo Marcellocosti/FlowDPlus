@@ -1,7 +1,7 @@
 inputs:
     dirname: null # leave null if not common for all input files
     filenames: [
-                /home/mdicosta/FlowDplus/FinalResults/3040final/V2VsPt_D0_3040.root,
+                /home/mdicosta/FlowDplus/FinalResults/V2VsPt_combined_3040_D0_chuntai.root,
                 /home/mdicosta/FlowDplus/FinalResults/3040final/cutvar_combined/V2VsFrac/V2VsFrac_combined.root
                 ]
     objectnames: [hv2Prompt, hV2VsPtPrompt] # can be either histograms of graphs or a mix of them; they will be drawn in the current order

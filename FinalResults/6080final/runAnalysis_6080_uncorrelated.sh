@@ -2,16 +2,16 @@
 
 export config_flow="/home/mdicosta/FlowDplus/FinalResults/6080final/config_6080_uncorrelated.yml"
 export preprocessed=True
-export docw=False
-export domy=False 
-export doprojdata=False
-export doprojmc=False
+export docw=True
+export domy=True 
+export doprojdata=True
+export doprojmc=True
 export doeff=True
-export dovn=False
-export dofcv=False
-export doddf=False
-export dov2vf=False
-export domergeimages=False
+export dovn=True
+export dofcv=True
+export doddf=True
+export dov2vf=True
+export domergeimages=True
 
 export usepreprocessed=$([ "$usepreprocessed" = "False" ] && echo "" || echo "--use_preprocessed")
 export calc_weights=$([ "$docw" = "False" ] && echo "" || echo "--do_calc_weights")

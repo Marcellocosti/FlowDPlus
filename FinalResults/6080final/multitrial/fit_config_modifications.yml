@@ -1,0 +1,16 @@
+# using sample with a given bdt cut set below
+fit_options:
+  BkgFuncVn: ["kLin"]
+  BkgFunc: ["kLin"]
+  Rebin: [1, 2, 4, 6] # depends on the value of a given pt bin
+  inv_mass_bins: # automatically get the MassMin and MassMax values
+    steps: [0.01]
+    MassMin: [1.76] # depends on the value of a given pt bin
+    MassMax: [2.02] # depends on the value of a given pt bin
+  use_inv_mass_bins: [false]
+
+  # FixSigma: -1: use the uncertainty from the sigma
+  # FixSigma: 0: do not fix the sigma
+  # FixSigma: 0.5: vary 50% the sigma
+  Sigma:
+    FixSigma: 0
