@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export config_flow="/home/mdicosta/FlowDplus/FinalResults/6080final/config_6080_uncorrelated.yml"
+export config_flow="/home/mdicosta/FlowDplus/FinalResults/6080final/syst_fFD/config_6080_syst_fFD.yml"
 export usepreprocessed=True
 export docw=True
 export domy=True 

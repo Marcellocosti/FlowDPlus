@@ -26,9 +26,8 @@ flow_files: [
 
 minimisation:
     correlated: false # true --> fully correlated, false --> fully uncorrelated
-
-combined: true
-correlatedPath: '/home/mdicosta/FlowDplus/FinalResults/3040final/cutvar_correlated'
+    combined: true
+    correlatedPath: '/home/mdicosta/FlowDplus/FinalResults/3040final/cutvar_correlated'
 
 # ep/sp subevents
 detA: 'FT0c'

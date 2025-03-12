@@ -1,23 +1,26 @@
 centrality: 'k4080' 
 anresdir: '' 
-res_file: '/home/mdicosta/Datasets/Reso/resosp6080l_PASS4_full_PbPb_Reso_syst.root'
-out_dir: '/home/mdicosta/FlowDplus/FinalResults/6080final'
+res_file: '/home/mdicosta/Datasets/Reso/resosp6080l_PASS4_full_PbPb_Reso.root'
+out_dir: '/home/mdicosta/FlowDplus/FinalResults/6080final/syst_fFD'
 skim_out_dir: /home/mdicosta/Datasets/6080/skim6080_338691/
-suffix: 'uncorrelated'
+suffix: 'syst_fFD'
 vn_method: 'sp'
 Dmeson: 'Dplus'
 MCAfterPRDplus: True
-eff_filename: /home/mdicosta/Datasets/eff/361926_manual_merge/MERGED_361296.root
-nworkers: 4
+nworkers: 40
 
 minimisation:
-    correlated: false # true --> fully correlated, false --> fully uncorrelated
+    correlated: true # true --> fully correlated, false --> fully uncorrelated
+    systematics: ['even', 'random', 'odd', 'minus3low', '1in3', '1in4', 'minus3high', 'minus3']
 
 # ep/sp subevents
 detA: 'FT0c'
 detB: 'FV0a'
 detC: 'TPCtot'
 
+eff_filename: /home/mdicosta/Datasets/eff/361926_manual_merge/MERGED_361296.root
+
+skimDir: /home/mdicosta/Datasets/3050/skim6080keepbkg/pre/AnRes/
 axestokeep: ['Mass', 'sp', 'score_FD', 'score_bkg', 'Pt']
 harmonic: 2 # 2: v2, 3: v3, etc.
 
@@ -110,8 +113,8 @@ cut_variation:
                   max: [0.5, 0.70, 0.90, 1.00]
                 - min: [0.00, 0.30, 0.50, 0.85] 
                   max: [0.30, 0.50, 0.85, 1.00]
-                - min: [0.00, 0.30, 0.60, 0.85]
-                  max: [0.30, 0.60, 0.80, 1.00]
+                - min: [0.00, 0.30, 0.50, 0.85]
+                  max: [0.30, 0.60, 0.85, 1.00]
                 - min: [0.00, 0.30, 0.60, 0.80]
                   max: [0.30, 0.60, 0.80, 1.00]
 

@@ -1,0 +1,57 @@
+# using sample with a given bdt cut set below
+ptbins:
+-   range: [4.0, 5.0]
+    MaxChi2: 20
+    MinSignificance: 5
+    MaxSignificance: 500
+    BkgFuncVn: ["kLin", "kPol2"]
+    BkgFunc: ["kLin", "kPol2", "kPol3"]
+    Rebin: [1,2,3]
+    inv_mass_bins_steps: [0.01, 0.02]
+    FixMean: [1, 0]
+    MassMin: [1.71, 1.73, 1.77, 1.79]
+    MassMax: [1.92, 1.97, 2.0]
+-   range: [5.0, 6.0]
+    MaxChi2: 20
+    MinSignificance: 5
+    MaxSignificance: 500
+    BkgFuncVn: ["kLin", "kPol2"]
+    BkgFunc: ["kLin", "kPol2", "kPol3"]
+    Rebin: [1,2,3]
+    inv_mass_bins_steps: [0.01, 0.02]
+    FixMean: [1, 0]
+    MassMin: [1.71, 1.73, 1.77, 1.79]
+    MassMax: [1.92, 1.97, 2.0]
+-   range: [6.0, 7.0]
+    MaxChi2: 20
+    MinSignificance: 5
+    MaxSignificance: 500
+    BkgFuncVn: ["kLin", "kPol2"]
+    BkgFunc: ["kLin", "kPol2", "kPol3"]
+    Rebin: [1,2,3]
+    inv_mass_bins_steps: [0.01, 0.02]
+    FixMean: [1, 0]
+    MassMin: [1.71, 1.73, 1.77, 1.79]
+    MassMax: [1.92, 1.97, 2.0]
+-   range: [7.0, 8.0]
+    MaxChi2: 20
+    MinSignificance: 5
+    MaxSignificance: 500
+    BkgFuncVn: ["kLin", "kPol2"]
+    BkgFunc: ["kLin", "kPol2", "kPol3"]
+    Rebin: [1,2,3]
+    inv_mass_bins_steps: [0.01, 0.02]
+    FixMean: [1, 0]
+    MassMin: [1.71, 1.79]
+    MassMax: [1.92, 1.97, 2.0]
+-   range: [8.0, 10.0]
+    MaxChi2: 20
+    MinSignificance: 5
+    MaxSignificance: 500
+    BkgFuncVn: ["kLin", "kPol2"]
+    BkgFunc: ["kLin", "kPol2", "kPol3"]
+    Rebin: [1,2,3]
+    inv_mass_bins_steps: [0.01, 0.02]
+    FixMean: [1, 0]
+    MassMin: [1.71, 1.73, 1.77, 1.79]
+    MassMax: [1.92, 1.97, 2.0]

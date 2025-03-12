@@ -1,15 +1,33 @@
-centrality: 'k4050' 
+centrality: 'k3050' 
 anresdir: '' 
-res_file: '/home/mdicosta/Datasets/Reso/resosp4050l_PASS4_full_PbPb_Reso.root'
-out_dir: '/home/mdicosta/FlowDplus/FinalResults/4050final'
-skim_out_dir: /home/mdicosta/Datasets/3050/skim4050keepbkg/
-suffix: 'correlated'
+res_file: '/home/mdicosta/Datasets/Reso/resosp3050l_PASS4_full_PbPb_Reso.root'
+out_dir: '/home/mdicosta/FlowDplus/FinalResults/3050final'
+skim_out_dir: /home/mdicosta/Datasets/3050/skim3050keepbkg/
+suffix: 'combined'
 vn_method: 'sp'
 Dmeson: 'Dplus'
-nworkers: 38
+nworkers: 40
+# nworkers: 1
+
+flow_files: [
+  /home/mdicosta/Datasets/3050/MERGED_0.root,
+  /home/mdicosta/Datasets/3050/MERGED_1.root,
+  /home/mdicosta/Datasets/3050/MERGED_2.root,
+  /home/mdicosta/Datasets/3050/MERGED_3.root,
+  /home/mdicosta/Datasets/3050/MERGED_4.root,
+  /home/mdicosta/Datasets/3050/MERGED_5.root,
+  /home/mdicosta/Datasets/3050/MERGED_6.root,
+  /home/mdicosta/Datasets/3050/MERGED_7.root,
+  /home/mdicosta/Datasets/3050/MERGED_8.root,
+  /home/mdicosta/Datasets/3050/MERGED_9.root,
+  /home/mdicosta/Datasets/3050/MERGED_10.root,
+]
+
 
 minimisation:
-    correlated: true # true --> fully correlated, false --> fully uncorrelated
+    correlated: false # true --> fully correlated, false --> fully uncorrelated
+    combined: true
+    correlatedPath: '/home/mdicosta/FlowDplus/FinalResults/3050final/cutvar_correlated'
 
 # ep/sp subevents
 detA: 'FT0c'
@@ -18,9 +36,11 @@ detC: 'TPCtot'
 
 eff_filename: /home/mdicosta/Datasets/eff/AnalysisResults_3050_334909.root
 
-skimDir: /home/mdicosta/Datasets/3050/skim4050keepbkg/pre/AnRes/
+skimDir: /home/mdicosta/Datasets/3050/skim3050keepbkg/pre/AnRes/
 axestokeep: ['Mass', 'sp', 'score_FD', 'score_bkg', 'Pt']
 harmonic: 2 # 2: v2, 3: v3, etc.
+
+
 
 ## used for computing pT weights
 Bspecie: Ball # only surport for Ball and BsBmix, empty means no B pt weights
@@ -99,12 +119,58 @@ use_inv_mass_bins: false
 # cut variation
 cut_variation:
        corr_bdt_cut:
-              bkg_max: [0.004, 0.004, 0.015, 0.015, 0.02, 0.02, 0.015, 0.015, 0.01, 0.01, 0.006, 0.006, 0.02, 0.02]
+              bkg_max: [0.004, 0.004, 0.015, 0.015, 0.02, 0.02, 0.015, 0.015, 0.007, 0.01, 0.006, 0.006, 0.02, 0.02]
+            #   bkg_max: [0.004, 0.004, 0.015, 0.015, 0.02, 0.02, 0.015, 0.015, 0.01, 0.01, 0.006, 0.004, 0.004, 0.004]
               sig: # the max value is not contained in the range
-                     min: [0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.04, 0.04]
+                    #  min: [0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06] #, 0.15, 0.15, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+                     min: [0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.04, 0.04] #, 0.15, 0.15, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
                      max: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.60, 0.60]
                      step: [0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.015, 0.015]
-
+       uncorr_bdt_cut:
+            bkg_max: # max probability for bkg, one for each pt bin
+                - [0.01, 0.02, 0.008, 0.002] # pt 1
+                - [0.04, 0.02, 0.02, 0.002] # pt 2
+                - [0.03, 0.03, 0.01, 0.006, 0.002] # pt 3
+                - [0.06, 0.06, 0.01, 0.006, 0.004] # pt 4
+                - [0.06, 0.06, 0.03, 0.01, 0.004] # pt 5
+                - [0.1, 0.07, 0.03, 0.004, 0.006] # pt 6
+                - [0.03, 0.01, 0.006, 0.006, 0.004] # pt 7
+                - [0.03, 0.1, 0.04, 0.01, 0.004] # pt 8
+                - [0.02, 0.02, 0.02, 0.006, 0.002] # pt 9
+                - [0.024, 0.024, 0.024, 0.004, 0.002] # pt 10
+                - [0.006, 0.006, 0.002, 0.002] # pt 11
+                - [0.006, 0.006, 0.002, 0.002] # pt 12
+                - [0.15, 0.15, 0.15, 0.05] # pt 13
+                - [0.09, 0.06, 0.06] # pt 14
+            sig:
+                - min: [0.00, 0.40, 0.70, 0.90] # min pt 1
+                  max: [0.40, 0.70, 0.90, 1.00] # max pt 1
+                - min: [0.00, 0.50, 0.70, 0.90] # min pt 2
+                  max: [0.50, 0.70, 0.90, 1.00] # max pt 2
+                - min: [0.00, 0.20, 0.45, 0.75, 0.90] # min pt 3
+                  max: [0.20, 0.45, 0.75, 0.90, 1.00] # max pt 3
+                - min: [0.00, 0.30, 0.50, 0.75, 0.90] # min pt 4
+                  max: [0.30, 0.50, 0.75, 0.90, 1.00] # max pt 4
+                - min: [0.00, 0.30, 0.50, 0.70, 0.85] # min pt 5
+                  max: [0.30, 0.50, 0.70, 0.85, 1.00] # max pt 5
+                - min: [0.00, 0.25, 0.40, 0.70, 0.90] # min pt 6
+                  max: [0.25, 0.40, 0.70, 0.90, 1.00] # max pt 6
+                - min: [0.00, 0.25, 0.45, 0.65, 0.85] # min pt 7
+                  max: [0.25, 0.45, 0.65, 0.85, 1.00] # max pt 7
+                - min: [0.00, 0.25, 0.45, 0.65, 0.85] # min pt 8
+                  max: [0.25, 0.45, 0.65, 0.85, 1.00] # max pt 8
+                - min: [0.00, 0.25, 0.45, 0.65, 0.85] # min pt 9
+                  max: [0.25, 0.45, 0.65, 0.85, 1.00] # max pt 9
+                - min: [0.00, 0.25, 0.45, 0.65, 0.85] # min pt 10
+                  max: [0.25, 0.45, 0.65, 0.85, 1.00] # max pt 10
+                - min: [0.00, 0.30, 0.50, 0.75] # min pt 11
+                  max: [0.30, 0.50, 0.75, 1.00] # max pt 11
+                - min: [0.00, 0.40, 0.60, 0.75] # min pt 12
+                  max: [0.40, 0.60, 0.75, 1.00] # max pt 12
+                - min: [0.00, 0.40, 0.60, 0.75] # min pt 13
+                  max: [0.40, 0.60, 0.75, 1.00] # max pt 13
+                - min: [0.00, 0.50, 0.70] # min pt 14
+                  max: [0.50, 0.70, 1.00] # max pt 14
 
 # fit options
 FixSigma: [
@@ -191,20 +257,20 @@ MassMax: [
           2.17, 
        ]
 Rebin: [
-        4,
-        4,
         2,
         2,
-        2,
-        2,
-        2,
-        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
         2,
         2,
         3,
         4,
-        8,
-        12,
        ]
 InclSecPeak: [
               0,
@@ -263,15 +329,15 @@ BkgFunc: [
            'kLin',
            'kLin', 
            'kLin', 
-           'kPol3', 
-           'kPol3', 
            'kLin', 
            'kLin', 
            'kLin', 
            'kLin', 
            'kLin', 
            'kLin', 
-           'kPol3',
+           'kLin', 
+           'kLin', 
+           'kLin',
            'kLin', 
          ]
 SgnFunc: [
@@ -317,3 +383,98 @@ ReflFunc: ''
 
 DrawVnComps: false
 IncludeTempls: False
+AnchorTemplsMode: 2
+MlDiffWeights: True
+WeightsFile: '/home/mdicosta/FlowDplus/FinalResults/3050final/cutvar_correlated_templates_inclusive/weights.root'
+SignalPath: '/home/mdicosta/Datasets/Templates/361285/DplusSignal.parquet'
+TemplsPaths: [
+                '/home/mdicosta/Datasets/Templates/361285/DplusToKKPi.parquet', 
+                '/home/mdicosta/Datasets/Templates/361285/DsToKKPi.parquet', 
+                # '/home/mdicosta/Datasets/Templates/361285/DstarToKPiPi.parquet', 
+              ]
+TemplsNames: [
+              "DplusKKPi", 
+              "DsKKPi", 
+              # "DstarKPiPi", 
+              ]
+TemplInputType: [
+            'histo', 
+            'histo', 
+            'histo', 
+            'histo',   
+            'histo',   
+            'histo',   
+            'histo', 
+            'histo', 
+            'histo', 
+            'histo', 
+            'histo', 
+            'histo', 
+            'histo',
+            'histo',
+              ]
+InitWeights: [
+            [100], 
+            [100], 
+            [2000], 
+            [20],
+            [100],
+            [100],
+            [100], 
+            [100], 
+            [100], 
+            [100], 
+            [100], 
+            [100], 
+            [100],
+            [100],
+              ]
+MinWeights: [
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+              [0],
+             ]
+MaxWeights: [
+              [20], 
+              [200], 
+              [200], 
+              [40],
+              [100],
+              [100],
+              [100],
+              [100],
+              [100],
+              [100],
+              [100],
+              [100],
+              [100],
+              [100],
+             ]
+
+FixVnTemplToSgn: [
+                     1, 
+                     1, 
+                     1, 
+                     1,
+                     1,
+                     1,
+                     1,
+                     1,
+                     1,
+                     1,
+                     1,
+                     1,
+                     1,
+                     1,
+                 ]

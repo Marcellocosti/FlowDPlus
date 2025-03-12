@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export config_flow="/home/mdicosta/FlowDplus/FinalResults/6080final/config_6080_combined.yml"
-export preprocessed=True
+export usepreprocessed=True
 export docw=True
 export domy=True 
 export doprojdata=True

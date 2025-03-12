@@ -1,8 +1,8 @@
-centrality: 'k4050' 
+centrality: 'k3050' 
 anresdir: '' 
-res_file: '/home/mdicosta/Datasets/Reso/resosp4050l_PASS4_full_PbPb_Reso.root'
-out_dir: '/home/mdicosta/FlowDplus/FinalResults/4050final'
-skim_out_dir: /home/mdicosta/Datasets/3050/skim4050keepbkg/
+res_file: '/home/mdicosta/Datasets/Reso/resosp3050l_PASS4_full_PbPb_Reso.root'
+out_dir: '/home/mdicosta/FlowDplus/FinalResults/3050final'
+skim_out_dir: /home/mdicosta/Datasets/3050/skim3050keepbkg/
 suffix: 'correlated'
 vn_method: 'sp'
 Dmeson: 'Dplus'
@@ -18,9 +18,11 @@ detC: 'TPCtot'
 
 eff_filename: /home/mdicosta/Datasets/eff/AnalysisResults_3050_334909.root
 
-skimDir: /home/mdicosta/Datasets/3050/skim4050keepbkg/pre/AnRes/
+skimDir: /home/mdicosta/Datasets/3050/skim3050keepbkg/pre/AnRes/
 axestokeep: ['Mass', 'sp', 'score_FD', 'score_bkg', 'Pt']
 harmonic: 2 # 2: v2, 3: v3, etc.
+
+
 
 ## used for computing pT weights
 Bspecie: Ball # only surport for Ball and BsBmix, empty means no B pt weights
@@ -99,19 +101,18 @@ use_inv_mass_bins: false
 # cut variation
 cut_variation:
        corr_bdt_cut:
-              bkg_max: [0.004, 0.004, 0.015, 0.015, 0.02, 0.02, 0.015, 0.015, 0.01, 0.01, 0.006, 0.006, 0.02, 0.02]
+              bkg_max: [0.004, 0.004, 0.015, 0.015, 0.02, 0.02, 0.015, 0.015, 0.007, 0.01, 0.006, 0.006, 0.02, 0.02]
               sig: # the max value is not contained in the range
                      min: [0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06, 0.04, 0.04]
                      max: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.60, 0.60]
                      step: [0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.015, 0.015]
-
 
 # fit options
 FixSigma: [
            0,
            0,
            0,
-           0, #1,
+           0,
            0,
            0,
            0,
@@ -263,15 +264,15 @@ BkgFunc: [
            'kLin',
            'kLin', 
            'kLin', 
-           'kPol3', 
-           'kPol3', 
            'kLin', 
            'kLin', 
            'kLin', 
            'kLin', 
            'kLin', 
            'kLin', 
-           'kPol3',
+           'kLin', 
+           'kLin', 
+           'kLin',
            'kLin', 
          ]
 SgnFunc: [
