@@ -1,0 +1,156 @@
+BkgFunc:
+- kPol3
+BkgFuncVn:
+- kLin
+BoundMean: 0
+Bspecie: Ball
+Dmeson: Dplus
+DrawVnComps: false
+FixMean:
+- 0
+FixSigma:
+- 0
+FixSigmaRatio: 0
+FixSigmaToFirstPeak: 0
+InclRefl: false
+InclSecPeak:
+- 0
+IncludeTempls: false
+MassMax:
+- 1.98
+MassMin:
+- 1.71
+MaxChi2: 20
+MaxSignificance: 500
+MeanFile: ''
+MinSignificance: 5
+NSigma4SB:
+- 4
+Rebin:
+- 2
+ReflFile: ''
+ReflFunc: ''
+SgnFunc:
+- kGaus
+Sigma:
+- 0.02
+SigmaFile: ''
+SigmaFileSecPeak: ''
+SigmaMultFactor: 1.0
+SigmaMultFactorSecPeak: 1.0
+SigmaRatioFile: ''
+SigmaSecPeak:
+- 0.008
+UseLikelihood: 1
+anresdir: ''
+axestokeep:
+- Mass
+- sp
+- score_FD
+- score_bkg
+- Pt
+centrality: k4050
+combined: true
+correlatedPath: /home/mdicosta/FlowDplus/FinalResults/4050final/cutvar_correlated
+cut_variation:
+  corr_bdt_cut:
+    bkg_max:
+    - 0.015
+    sig:
+      max:
+      - 1.0
+      min:
+      - 0.06
+      step:
+      - 0.025
+  uncorr_bdt_cut:
+    bkg_max:
+    - - 0.1
+      - 0.07
+      - 0.006
+      - 0.006
+      - 0.004
+    sig:
+    - max:
+      - 0.25
+      - 0.45
+      - 0.65
+      - 0.85
+      - 1.0
+      min:
+      - 0.0
+      - 0.25
+      - 0.45
+      - 0.65
+      - 0.85
+detA: FT0c
+detB: FV0a
+detC: TPCtot
+eff_filename: /home/mdicosta/Datasets/eff/AnalysisResults_3050_334909.root
+enableRef: false
+harmonic: 2
+inv_mass_bins:
+- - 1.7
+  - 1.72
+  - 1.73
+  - 1.74
+  - 1.75
+  - 1.76
+  - 1.77
+  - 1.78
+  - 1.79
+  - 1.8
+  - 1.81
+  - 1.82
+  - 1.83
+  - 1.84
+  - 1.85
+  - 1.86
+  - 1.87
+  - 1.88
+  - 1.89
+  - 1.9
+  - 1.91
+  - 1.92
+  - 1.93
+  - 1.94
+  - 1.95
+  - 1.96
+  - 1.97
+  - 1.98
+  - 1.99
+  - 2.0
+  - 2.01
+  - 2.02
+  - 2.03
+  - 2.04
+  - 2.05
+minimisation:
+  correlated: false
+nworkers: 1
+out_dir: /home/mdicosta/FlowDplus/FinalResults/4050final/multitrial_ptdiff/pt_40_50/trails/
+ptmaxs:
+- 5.0
+ptmins:
+- 4.0
+rebin: 1
+res_file: /home/mdicosta/Datasets/Reso/resosp4050l_PASS4_full_PbPb_Reso.root
+shapes:
+  B:
+    fonll: /home/mdicosta/FlowDplus/MLanalysis/PtWeights/fonll_pythia_beautyFFee_charmhadrons_5dot5tev_y0dot5.root
+    tamu:
+      enabled: true
+      file:
+        B: /home/mdicosta/alice/DmesonAnalysis/models/tamu/B_TAMU_RAA_5TeV_3050.txt
+        Bs: ''
+  D:
+    fonll: /home/mdicosta/FlowDplus/MLanalysis/PtWeights/fonll_pythia_beautyFFee_charmhadrons_5dot5tev_y0dot5.root
+    tamu:
+      enabled: true
+      file: /home/mdicosta/alice/DmesonAnalysis/models/tamu/PromptD0_TAMU_RAA_5TeV_3050.txt
+skimDir: /home/mdicosta/Datasets/3050/skim4050keepbkg/pre/AnRes/
+skim_out_dir: /home/mdicosta/Datasets/3050/skim4050keepbkg/
+smooth: 100
+suffix: '385'
+use_inv_mass_bins: false
+vn_method: sp

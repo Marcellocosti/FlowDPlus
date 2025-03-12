@@ -1,0 +1,24 @@
+cutvars:
+  Pt:
+    max:
+    - 24.0
+    min:
+    - 16.0
+    name: pt_cand
+  score_FD:
+    max:
+    - 1.0
+    min:
+    - 0.7
+    name: score_FD
+  score_bkg:
+    max:
+    - 0.06
+    min:
+    - 0.0
+    name: score_bkg
+fitrangemax:
+- 2.13
+fitrangemin:
+- 1.7
+icutset: 2

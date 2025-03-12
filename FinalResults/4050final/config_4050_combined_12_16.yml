@@ -11,7 +11,7 @@ nworkers: 1
 minimisation:
     correlated: false # true --> fully correlated, false --> fully uncorrelated
     combined: true
-    correlatedPath: '/home/mdicosta/FlowDplus/FinalResults/combined/4050/cutvar_combined/'
+    correlatedPath: '/home/mdicosta/FlowDplus/FinalResults/4050final/cutvar_combined/'
 
 # ep/sp subevents
 detA: 'FT0c'
@@ -335,7 +335,7 @@ BkgFunc: [
           #  'kLin', 
           #  'kLin', 
           #  'kLin', 
-           'kPol3',
+           'kPol2',
           #  'kLin', 
          ]
 SgnFunc: [

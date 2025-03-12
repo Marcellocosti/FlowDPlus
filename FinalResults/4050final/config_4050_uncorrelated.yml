@@ -311,15 +311,15 @@ BkgFunc: [
            'kLin',
            'kLin', 
            'kLin', 
+           'kPol3', 
+           'kPol3', 
            'kLin', 
            'kLin', 
            'kLin', 
            'kLin', 
            'kLin', 
            'kLin', 
-           'kLin', 
-           'kLin', 
-           'kLin',
+           'kPol3',
            'kLin', 
          ]
 SgnFunc: [
